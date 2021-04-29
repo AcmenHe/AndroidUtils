@@ -8,7 +8,7 @@ import okhttp3.ResponseBody
 /**
  * kotlin版
  */
-class LoginPresenterKT(baseView: IBaseView) : BasePresenter(Config.ENDPOINT,baseView) {
+class LoginPresenterKT(baseView: IBaseView) : BasePresenter(Config.serverUrl,baseView) {
 
     private var mPresenter = getService(Api::class.java)
     /**用户密码登陆*/

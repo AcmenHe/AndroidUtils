@@ -15,7 +15,7 @@ import okhttp3.ResponseBody;
 public class LoginPresenter extends BasePresenter {
 
     public LoginPresenter(IBaseView baseView) {
-        super(Config.ENDPOINT, baseView);
+        super(Config.serverUrl, baseView);
     }
 
     /**用户密码登陆*/
