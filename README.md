@@ -111,10 +111,6 @@ public interface Api {
     @POST(ApiUrl.USER_LOGIN)
     Observable<ResponseBody> userLogin(@Query("mobile")String mobile , @Query("userPwd")String userPwd ,
                   @Query("smsCode")String smsCode , @Query("loginType")String loginType);
-
-    @GET("api/task/taskinstance/getTaskStepInfo?client=2&runLogId=lwzccq20210322151906246179139&client=2&taskId=lwzccq20210320163525603861506")
-    Observable<JSONObject> getTaskStepInfo();
-
 }
 ```
 接口地址
