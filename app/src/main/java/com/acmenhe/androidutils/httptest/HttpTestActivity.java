@@ -1,12 +1,20 @@
 package com.acmenhe.androidutils.httptest;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.acmenhe.androidutils.R;
+import com.acmenhe.httplib.HttpManager;
+import com.acmenhe.httplib.RxSchedulers;
 import com.acmenhe.mylibrary.base.BaseActivity;
+
+import org.json.JSONObject;
+
+import io.reactivex.functions.Consumer;
+import okhttp3.ResponseBody;
 
 public class HttpTestActivity extends BaseActivity {
 
@@ -30,12 +38,28 @@ public class HttpTestActivity extends BaseActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.userLogin(
-                        edt_name.getText().toString(),
-                        edt_password.getText().toString(),
-                        "",
-                        "2"
-                );
+//                mPresenter.userLogin(
+//                        edt_name.getText().toString(),
+//                        edt_password.getText().toString(),
+//                        "",
+//                        "2"
+//                );
+                HttpManager.getInstance(Config.serverUrl)
+                        .setAuth("Basic MDQwMDg6ZWY3OTdjODExOGYwMmRmYjY0OTYwN2RkNWQzZjhjNzYyMzA0OGM5YzA2M2Q1MzJjYzk1YzVlZDdhODk4YTY0Zg==")
+                        .create(Api.class)
+                        .getTaskStepInfo()
+                        .compose(RxSchedulers.<JSONObject>applySchedulers())
+                        .subscribe(new Consumer<JSONObject>() {
+                            @Override
+                            public void accept(JSONObject jsonObject) throws Exception {
+                                tv_result.setText(jsonObject.toString());
+                            }
+                        }, new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                Log.e("Throwable",throwable.getMessage());
+                            }
+                        });
             }
         });
     }

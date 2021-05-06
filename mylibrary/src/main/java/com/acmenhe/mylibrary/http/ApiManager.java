@@ -65,7 +65,7 @@ public class ApiManager {
     /**
      * OkHttpClient
      */
-    private void okHttpClient() {
+    public void okHttpClient() {
         String[] hosts = {ENDPOINT};
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if (interceptor != null) {

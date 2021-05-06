@@ -73,16 +73,16 @@ implements IBaseView {
         baseActivity = this;
         ActivityCollector.addActivity(this);
 
-        Observable.interval(1, TimeUnit.SECONDS)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .compose(this.<Long>bindToLifecycle())
-                .subscribe(new Consumer<Long>() {
-                    @Override
-                    public void accept(Long aLong) throws Exception {
-
-                    }
-                });
+//        Observable.interval(1, TimeUnit.SECONDS)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .compose(this.<Long>bindToLifecycle())
+//                .subscribe(new Consumer<Long>() {
+//                    @Override
+//                    public void accept(Long aLong) throws Exception {
+//
+//                    }
+//                });
     }
 
     @Override
