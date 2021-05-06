@@ -44,10 +44,12 @@ public class HttpTestActivity extends BaseActivity {
 //                        "",
 //                        "2"
 //                );
+
                 HttpManager.getInstance(Config.serverUrl)
-                        .setAuth("Basic MDQwMDg6ZWY3OTdjODExOGYwMmRmYjY0OTYwN2RkNWQzZjhjNzYyMzA0OGM5YzA2M2Q1MzJjYzk1YzVlZDdhODk4YTY0Zg==")
+//                        .setAuth("Basic MDQwMDg6ZWY3OTdjODExOGYwMmRmYjY0OTYwN2RkNWQzZjhjNzYyMzA0OGM5YzA2M2Q1MzJjYzk1YzVlZDdhODk4YTY0Zg==")
+                        .setAuthBase64(edt_name.getText().toString(),edt_password.getText().toString())
                         .create(Api.class)
-                        .getTaskStepInfo()
+                        .getTaskList()
                         .compose(RxSchedulers.<JSONObject>applySchedulers())
                         .subscribe(new Consumer<JSONObject>() {
                             @Override
