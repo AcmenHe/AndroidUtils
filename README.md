@@ -1,8 +1,18 @@
 # AndroidUtils
 ## 使用方式
+### 项目根目录下build.gradle文件中添加 maven { url 'https://jitpack.io' }
+```java
+  allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
 
-### 1. 网络库：implementation 'com.github.AcmenHe.AndroidUtils:httplib:v1.0.1'
 ```
+### 1. 网络库：implementation 'com.github.AcmenHe.AndroidUtils:httplib:v1.0.1'
+```java
                       HttpManager.getInstance(Config.serverUrl)
 //                        .setAuthBase64(edt_name.getText().toString(),
 //                                EncryptUtils.encryptSHA256ToString(
@@ -24,7 +34,7 @@
                         });
 ```
 Api接口
-```
+```java
 public interface Api {
 
     @GET("api/task/getTaskList")
@@ -34,7 +44,7 @@ public interface Api {
 ```
 ### 2. mvp+网络库：implementation 'com.github.AcmenHe.AndroidUtils:mylibrary:v1.0.1'
 Activity
-```
+```java
    public class HttpTestActivity extends BaseActivity {
 
     private LoginPresenterKT mPresenter = null;
@@ -87,7 +97,7 @@ Activity
 }
 ```
 Presenter
-```
+```java
 public class LoginPresenter extends BasePresenter {
 
     public LoginPresenter(IBaseView baseView) {
@@ -104,7 +114,7 @@ public class LoginPresenter extends BasePresenter {
 }
 ```
 Api接口
-```
+```java
 public interface Api {
 
     /**用户密码登陆*/
@@ -114,7 +124,7 @@ public interface Api {
 }
 ```
 接口地址
-```
+```java
 public class ApiUrl {
     /**用户密码登陆*/
     public static final String USER_LOGIN = "user/login";
