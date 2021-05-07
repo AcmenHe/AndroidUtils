@@ -11,7 +11,7 @@
 }
 
 ```
-### 1. 网络库：implementation 'com.github.AcmenHe.AndroidUtils:httplib:v1.0.1'
+### 1. 网络库：implementation 'com.github.AcmenHe.AndroidUtils:httplib:1.0.3'
 ```java
                       HttpManager.getInstance(Config.serverUrl)
 //                        .setAuthBase64(edt_name.getText().toString(),
@@ -42,7 +42,7 @@ public interface Api {
 
 }
 ```
-### 2. mvp+网络库：implementation 'com.github.AcmenHe.AndroidUtils:mylibrary:v1.0.1'
+### 2. mvp+网络库：implementation 'com.github.AcmenHe.AndroidUtils:mylibrary:1.0.3'
 Activity
 ```java
    public class HttpTestActivity extends BaseActivity {
