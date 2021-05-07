@@ -36,16 +36,16 @@ public class HttpManager {
      * 初始化默认值
      * @param url
      */
-    public static void initUrl(String url){
+    public static void setDefaultUrl(String url){
         defaultUrl = url;
     }
-    public static void initInterceptor(Interceptor interceptor ){
+    public static void setDefaultInterceptor(Interceptor interceptor ){
         defaultInterceptor = interceptor;
     }
-    public static void initAuth(String sAuthorization){
+    public static void setDefaultAuth(String sAuthorization){
         defaultAuthorization = sAuthorization;
     }
-    public static void initAuthBase64(String sUserName,String sPassword){
+    public static void setDefaultAuthBase64(String sUserName,String sPassword){
         defaultAuthorization = getAuthBase64(sUserName,sPassword);
     }
 
@@ -62,7 +62,7 @@ public class HttpManager {
             throw new RuntimeException("baseUrl is null!");
         }
         sServerUrl = url;
-        getOkHttpClient();
+//        getOkHttpClient();
     }
     /**
      * 自定义过滤器
