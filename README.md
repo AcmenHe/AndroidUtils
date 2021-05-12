@@ -14,10 +14,6 @@
 ### 1. 网络库：implementation 'com.github.AcmenHe.AndroidUtils:httplib:1.0.3'
 ```java
                       HttpManager.getInstance(Config.serverUrl)
-//                        .setAuthBase64(edt_name.getText().toString(),
-//                                EncryptUtils.encryptSHA256ToString(
-//                                        edt_password.getText().toString()
-//                                ).toLowerCase())
                         .create(Api.class)
                         .getTaskList()
                         .compose(RxSchedulers.<JSONObject>applySchedulers())
